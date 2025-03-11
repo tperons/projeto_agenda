@@ -46,12 +46,19 @@ class RegisterForm(UserCreationForm):
             )
         return email
     
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.is_active = False
+        if commit:
+            user.save()
+        return user
+    
 
 
 
 class RegisterUpdateForm(forms.ModelForm):
-    first_name = forms.CharField(required=True, help_text='Required')
-    last_name = forms.CharField(required=True, help_text='Required')
+    first_name = forms.CharField(required=True, label='Primeiro Nome')
+    last_name = forms.CharField(required=True, label='Sobrenome')
     password1 = forms.CharField(
         label='Password',
         strip=False,
@@ -60,7 +67,7 @@ class RegisterUpdateForm(forms.ModelForm):
         required=False,
     )
     password2 = forms.CharField(
-        label='password 2',
+        label='Confirme o Password',
         strip=False,
         widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
         required=False,
