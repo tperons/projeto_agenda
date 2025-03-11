@@ -30,6 +30,11 @@ class Contact(models.Model):
     category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.SET_NULL, verbose_name='Categoria')
     owner = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, verbose_name='Criador')
 
+    def save(self, *args, **kwargs):
+        self.first_name = self.first_name.capitalize()
+        self.last_name = self.last_name.capitalize()
+        super(Contact, self).save(*args, **kwargs)
+
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
     

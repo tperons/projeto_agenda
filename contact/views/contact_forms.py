@@ -24,7 +24,7 @@ def create(request):
             contact.owner = request.user
             contact.save()
             messages.success(request, 'Contato Criado.')
-            return redirect('contact:update', contact_id=contact.id)
+            return redirect('contact:index')
 
         return render(
             request,

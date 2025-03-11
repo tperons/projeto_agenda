@@ -29,8 +29,8 @@ class ContactForm(forms.ModelForm):
 
 
 class RegisterForm(UserCreationForm):
-    first_name = forms.CharField(required=True, min_length=3)
-    last_name = forms.CharField(required=True, min_length=3)
+    first_name = forms.CharField(required=True, min_length=3, label='Primeiro Nome')
+    last_name = forms.CharField(required=True, min_length=3, label='Sobrenome')
     email = forms.EmailField()
     
     class Meta:
