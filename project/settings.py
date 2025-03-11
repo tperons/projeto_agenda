@@ -77,24 +77,24 @@ WSGI_APPLICATION = 'project.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # Replace this value with your local database's connection string.
-#         default='postgresql://admin:6pNBij8Wrkjz16UEsD0kIMUuCoYNmtbi@dpg-cv81h55ds78s73crm73g-a/contact_db_ltrv',
-#         conn_max_age=600
-#     )
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'contact_db_ltrv',
-        'USER': 'admin',
-        'PASSWORD': '6pNBij8Wrkjz16UEsD0kIMUuCoYNmtbi',
-        'HOST': 'dpg-cv81h55ds78s73crm73g-a',
-        'PORT': '5432'
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://admin:6pNBij8Wrkjz16UEsD0kIMUuCoYNmtbi@dpg-cv81h55ds78s73crm73g-a.oregon-postgres.render.com/contact_db_ltrv',
+        conn_max_age=600
+    )
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'contact_db_ltrv',
+#         'USER': 'admin',
+#         'PASSWORD': '6pNBij8Wrkjz16UEsD0kIMUuCoYNmtbi',
+#         'HOST': 'dpg-cv81h55ds78s73crm73g-a',
+#         'PORT': '5432'
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
